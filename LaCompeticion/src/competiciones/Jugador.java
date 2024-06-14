@@ -2,13 +2,15 @@ package competiciones;
 
 public class Jugador {
 	String dniJugador, nombre, apellidos, equipo;
+	int dorsal;
 	boolean estado;
 
-	public Jugador(String dniJugador, String nombre, String apellidos, String equipo, boolean disponible) {
+	public Jugador(String dniJugador, String nombre, String apellidos, String equipo, int dorsal, boolean disponible) {
 		this.dniJugador = dniJugador;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.equipo = equipo;
+		this.dorsal = dorsal;
 		this.estado = false;
 	}
 
@@ -42,6 +44,14 @@ public class Jugador {
 
 	public void setEquipo(String equipo) {
 		this.equipo = equipo;
+	}
+
+	public int getDorsal() {
+		return dorsal;
+	}
+
+	public void setDorsal(int dorsal) {
+		this.dorsal = dorsal;
 	}
 
 	public boolean isEstado() {
