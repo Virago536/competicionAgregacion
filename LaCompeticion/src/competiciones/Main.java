@@ -16,6 +16,7 @@ public class Main {
 		
 		//Atributos jugador
 		String atrDni, atrNombre, atrApellidos, atrEquipo, compararEstado;
+		int atrDorsal = 0;
 		boolean atrEstado;
 		
 		//Atributo respuesta switch
@@ -214,11 +215,24 @@ public class Main {
 					atrNombre = sc.nextLine();
 					System.out.println("Introduzca sus apellidos");
 					atrApellidos = sc.nextLine();
+					System.out.println("Introduzca el dorsal del jugador (Número entre 1 y 100)");
+					try {
+						atrDorsal = Integer.valueOf(sc.nextLine());
+					}catch(NumberFormatException n) {
+						System.out.println("Dorsal no válido");
+						break;
+					}finally {
+						if(atrDorsal>100 || atrDorsal<1) {
+							System.out.println("Dorsal no válido");
+							break;
+						}
+					}
+					
 					
 					atrEquipo = elEquipo.getCodigo();
 					atrEstado = false;
 					
-					Jugador nuevojugador = new Jugador(atrDni, atrNombre, atrApellidos, atrEquipo, atrEstado);
+					Jugador nuevojugador = new Jugador(atrDni, atrNombre, atrApellidos, atrEquipo, atrDorsal, atrEstado);
 					
 					if(Liga.addJugador(nuevojugador)==true) {
 						System.out.println("Jugador dado de alta correctamente");
